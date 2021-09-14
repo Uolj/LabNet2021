@@ -25,28 +25,8 @@ namespace Entidades
         protected decimal kilometrosRecorridos = 0;
         protected decimal valoracionTotal = 0;
         protected string informacionViaje;
-        public int Pasajeros
-        {
-            get
-            {
-                return this.pasajeros;
-            }
-            set
-            {
-                this.pasajeros = value;
-            }
-        }
-        public string NombreChofer
-        {
-            get
-            {
-                return this.nombreChofer;
-            }
-            set
-            {
-                this.nombreChofer = value;
-            }
-        }
+        public int Pasajeros { get; private set; }
+        public string NombreChofer { get; private set; }
         public string Resultado
         {
             get
@@ -69,12 +49,7 @@ namespace Entidades
 
         public abstract string Avanzar();
 
-        public string Detenerse()
-        {
-            var valoracionCliente = new Random().Next(1, 5);
-            this.valoracionTotal += valoracionCliente;
-            return $"cliente llego exitosamente, su valoracion es de {valoracionCliente} sobre 5";
-        }
+        public abstract string Detenerse();
 
         public void RealizarViajes()
         {

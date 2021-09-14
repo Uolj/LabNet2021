@@ -21,16 +21,16 @@ namespace tp1
             this.ramalBox.DataSource = Enum.GetValues(typeof(Ramales));
         }
 
-        private void taxiBtn_Click(object sender, EventArgs e)
+        private void TaxiBtn_Click(object sender, EventArgs e)
         {
             int cantidadPasajeros;
             int.TryParse(this.pasajerosTaxiTxt.Text, out cantidadPasajeros);
             if (cantidadPasajeros > 0 && cantidadPasajeros < 5)
             {
-                if (comprobacionNombre(this.nombreTaxiTxt.Text.Trim()))
+                if (ComprobacionNombre(this.nombreTaxiTxt.Text.Trim()))
                 {
                     var nuevoTransporte = new Taxi(cantidadPasajeros, this.nombreTaxiTxt.Text.Trim(), (int)this.marcaBox.SelectedItem);
-                    agregarTransporte(nuevoTransporte);
+                    AgregarTransporte(nuevoTransporte);
                 }
                 else
                 {
@@ -44,16 +44,16 @@ namespace tp1
             }
         }
 
-        private void omnibusBtn_Click(object sender, EventArgs e)
+        private void OmnibusBtn_Click(object sender, EventArgs e)
         {
             int cantidadPasajeros;
             int.TryParse(this.pasajerosOmnibusTxt.Text, out cantidadPasajeros);
             if (cantidadPasajeros > 0 && cantidadPasajeros < 51)
             {
-                if (comprobacionNombre(this.nombreOmnibusTxt.Text.Trim()))
+                if (ComprobacionNombre(this.nombreOmnibusTxt.Text.Trim()))
                 {
                 var nuevoTransporte = new Omnibus(cantidadPasajeros, this.nombreOmnibusTxt.Text.Trim(), (int)this.ramalBox.SelectedItem);
-                agregarTransporte(nuevoTransporte);
+                AgregarTransporte(nuevoTransporte);
                 }
                 else
                 {
@@ -66,7 +66,12 @@ namespace tp1
                 MessageBox.Show("Ingrese un numero valido de pasajeros (de 1 a 50)");
             }
         }
-        private void agregarTransporte(TransportePublico transporte)
+        private void ComenzarBtn_Click(object sender, EventArgs e)
+        {
+            RecorridosForm recorridosForm = new RecorridosForm(transportes);
+            recorridosForm.Show();
+        }
+        private void AgregarTransporte(TransportePublico transporte)
         {
             this.transportes.Add(transporte);
 
@@ -77,7 +82,7 @@ namespace tp1
             }
             this.transportesTxt.Text = sb.ToString();
         }
-        private bool comprobacionNombre(string nombre)
+        private bool ComprobacionNombre(string nombre)
         {
             foreach (TransportePublico item in transportes)
             {
@@ -89,10 +94,5 @@ namespace tp1
             return true;
         }
 
-        private void comenzarBtn_Click(object sender, EventArgs e)
-        {
-            RecorridosForm recorridosForm = new RecorridosForm(transportes);
-            recorridosForm.Show();
-        }
     }
 }

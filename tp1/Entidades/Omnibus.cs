@@ -9,16 +9,9 @@ namespace Entidades
     public class Omnibus : TransportePublico
     {
         private int ramal;
-        public int Linea
+        public int Ramal
         {
-            get
-            {
-                return this.ramal;
-            }
-            set
-            {
-                this.ramal = value;
-            }
+            get; private set;
         }
         public Omnibus(int pasajeros, string nombreChofer, int ramal) : base(pasajeros, nombreChofer)
         {
@@ -29,6 +22,33 @@ namespace Entidades
             var distanciaViaje = new Random().Next(0, 20);
             this.kilometrosRecorridos += distanciaViaje;
             return $"parada ubicada a {distanciaViaje} Kms alcanzada";
+        }
+        public override string Detenerse()
+        {
+            var valoracionCliente = new Random().Next(0, 2);
+            valoracionCliente += ComodidadPorRamal(this.ramal);
+            this.valoracionTotal += valoracionCliente;
+            return $"cliente llego exitosamente, su valoracion es de {valoracionCliente} sobre 5";
+
+        }
+        private int ComodidadPorRamal(int ramal)
+        {
+            if (ramal == 1)
+            {
+                return 1;
+            }
+            else if (ramal == 2)
+            {
+                return 2;
+            }
+            else if (ramal == 3)
+            {
+                return 3;
+            }
+            else
+            {
+                return -100;//flag
+            }
         }
         public override string ToString()
         {

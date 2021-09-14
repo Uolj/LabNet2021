@@ -17,17 +17,16 @@ namespace tp1
         public RecorridosForm(List<TransportePublico> transportes)
         {
             this.transportes = transportes;
-            foreach(TransportePublico item in transportes)
+            foreach (TransportePublico item in transportes)
             {
                 item.RealizarViajes();
             }
-
             InitializeComponent();
             resultadosTxt.DataSource = transportes;
             resultadosTxt.DisplayMember = "Resultado";
         }
 
-        private void detalleBtn_Click(object sender, EventArgs e)
+        private void DetalleBtn_Click(object sender, EventArgs e)
         {
             DetalleForm detalleForm = new DetalleForm((TransportePublico)this.resultadosTxt.SelectedItem);
             detalleForm.Show();

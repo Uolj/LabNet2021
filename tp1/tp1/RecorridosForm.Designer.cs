@@ -41,7 +41,7 @@ namespace tp1
             this.detalleBtn.TabIndex = 1;
             this.detalleBtn.Text = "Ver detalle";
             this.detalleBtn.UseVisualStyleBackColor = true;
-            this.detalleBtn.Click += new System.EventHandler(this.detalleBtn_Click);
+            this.detalleBtn.Click += new System.EventHandler(this.DetalleBtn_Click);
             // 
             // resultadosTxt
             // 

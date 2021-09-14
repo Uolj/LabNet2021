@@ -123,7 +123,7 @@ namespace tp1
             this.taxiBtn.TabIndex = 3;
             this.taxiBtn.Text = "Crear Taxi";
             this.taxiBtn.UseVisualStyleBackColor = true;
-            this.taxiBtn.Click += new System.EventHandler(this.taxiBtn_Click);
+            this.taxiBtn.Click += new System.EventHandler(this.TaxiBtn_Click);
             // 
             // omnibusBtn
             // 
@@ -133,7 +133,7 @@ namespace tp1
             this.omnibusBtn.TabIndex = 7;
             this.omnibusBtn.Text = "Crear Omnibus";
             this.omnibusBtn.UseVisualStyleBackColor = true;
-            this.omnibusBtn.Click += new System.EventHandler(this.omnibusBtn_Click);
+            this.omnibusBtn.Click += new System.EventHandler(this.OmnibusBtn_Click);
             // 
             // omnibusGroup
             // 
@@ -216,7 +216,7 @@ namespace tp1
             this.comenzarBtn.TabIndex = 5;
             this.comenzarBtn.Text = "COMENZAR RECORRIDOS";
             this.comenzarBtn.UseVisualStyleBackColor = true;
-            this.comenzarBtn.Click += new System.EventHandler(this.comenzarBtn_Click);
+            this.comenzarBtn.Click += new System.EventHandler(this.ComenzarBtn_Click);
             // 
             // MainForm
             // 

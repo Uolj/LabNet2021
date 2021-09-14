@@ -19,7 +19,7 @@ namespace tp1
             this.detalleTxt.Text = detalleTransporte.InformacionViaje;
         }
 
-        private void volverBtn_Click(object sender, EventArgs e)
+        private void VolverBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

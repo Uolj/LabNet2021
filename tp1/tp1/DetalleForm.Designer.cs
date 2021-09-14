@@ -49,7 +49,7 @@ namespace tp1
             this.volverBtn.TabIndex = 1;
             this.volverBtn.Text = "Volver";
             this.volverBtn.UseVisualStyleBackColor = true;
-            this.volverBtn.Click += new System.EventHandler(this.volverBtn_Click);
+            this.volverBtn.Click += new System.EventHandler(this.VolverBtn_Click);
             // 
             // DetalleForm
             // 
