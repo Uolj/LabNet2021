@@ -8,11 +8,11 @@ namespace Entities
 {
     public class Logic
     {
-        public static void ThrowException()
+        public void ThrowException()
         {
             throw new Exception() ;
         }
-        public static void ThrowCustomException(string message)
+        public void ThrowCustomException(string message)
         {
             throw new CustomException(message);
         }

@@ -15,6 +15,7 @@ namespace UI
 {
     public partial class tp2Form : Form
     {
+        private Logic logic = new Logic();
         public tp2Form()
         {
             InitializeComponent();
@@ -67,7 +68,7 @@ namespace UI
         {
             try
             {
-                Logic.ThrowException();
+                this.logic.ThrowException();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
@@ -78,7 +79,7 @@ namespace UI
         {
             try
             {
-                Logic.ThrowCustomException("I'm his exception 0__0");
+                this.logic.ThrowCustomException("I'm his exception 0__0");
             }
             catch(CustomException ex)
             {

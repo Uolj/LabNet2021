@@ -6,7 +6,7 @@ using UI;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class Tp2Tests
     {
         [DataRow(5, 0)]
         [DataRow(98, 0)]
@@ -25,15 +25,9 @@ namespace UnitTest
             //arrange
             string expectedMessage = "Now this is my exception B¬| --> something";
             //act
-            try
-            {
-                Logic.ThrowCustomException("something");
-            }
-            catch (CustomException customException)
-            {
-                //assert
-                Assert.AreEqual(expectedMessage, customException.Message);
-            }
+            var newException = new CustomException("something");
+            //Assert
+            Assert.AreEqual(expectedMessage, newException.Message);
         }
     }
 }
