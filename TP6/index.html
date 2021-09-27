@@ -1,0 +1,71 @@
+<!-- Lautaro Walsh TP6-HTML
+------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link rel="stylesheet" href="CSS\styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <form style="width: 400px">
+      <h1>CONTACTO</h1>
+      <h2>Completa tus datos:</h2>
+      <div class="FormularioPadre">
+        <label for="Informacion Personal" class="titulos"
+          >Informacion Personal:</label
+        >
+        <br />
+        <section class="formularioHijo">
+          <label for="nombreTxt">Nombre:</label>
+          <br />
+          <input type="text" name="nombre" id="nombreTxt" />
+          <br />
+          <label for="apellidoTxt">Apellido:</label>
+          <br />
+          <input type="text" name="Apellido" id="apellidoTxt" />
+          <br />
+          <label for="edadTxt">Edad:</label>
+          <br />
+          <input type="text" name="Edad" id="edadTxt" />
+          <br />
+          <input type="radio" name="Masculino" />
+          <label>Masculino</label>
+          <br />
+          <input type="radio" name="Femenino" />
+          <label>Femenino</label>
+          <br />
+          <input type="radio" name="Otro" />
+          <label>Otro</label>
+        </section>
+        <label for="Informacion Adicional" class="titulos"
+          >Informacion Adicional:</label
+        >
+        <br />
+        <section div class="formularioHijo">
+          <label for="empresaTxt">Empresa:</label>
+          <br />
+          <input type="text" name="empresa" id="empresaTxt" />
+        </section>
+        <button id="submitBtn">Submit</button>
+        <button id="reiniciarCamposBtn">Reiniciar Campos</button>
+      </div>
+    </form>
+    <style>
+      #edadTxt {
+        width: 60px;
+      }
+    </style>
+  </body>
+  <script src="JS\script.js"></script>
+</html>
