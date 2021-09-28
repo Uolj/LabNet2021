@@ -1,0 +1,27 @@
+﻿@model List<UI_MVC.Models.ShippersViewModel>
+
+@{
+    ViewBag.Title = "SHIPPERS CHAVAL";
+}
+
+<h1>SHIPPERS CHAVAL</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Company Name</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shippers in Model)
+        {
+                <tr>
+                    <td>@shippers.CompanyName</td>
+                    <td>@shippers.PhoneNumber</td>
+                    <td><button>Borrar</button></td>
+                </tr>
+            }
+    </tbody>
+</table>

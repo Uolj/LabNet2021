@@ -16,7 +16,7 @@ namespace Logic
             context = new NorthwindContext();
         }
 
-        protected List<T> GetAll<T>()
+        public List<T> GetAll<T>()
             where T:class
         {
             return context.Set<T>().ToList();
