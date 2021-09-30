@@ -1,6 +1,9 @@
 ﻿using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +45,11 @@ namespace Logic
 
         public void Delete(int id)
         {
+<<<<<<< HEAD
             if (id <= 8 && id >= 1)
+=======
+            if (id <= 8 && id>=1)
+>>>>>>> 2ace80db213e0f0150c7642ba71835822d14d3fe
             {
                 throw new DeleteConstraintException();
             }

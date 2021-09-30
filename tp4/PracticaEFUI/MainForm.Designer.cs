@@ -49,20 +49,23 @@ namespace PracticaEFUI
             this.deleteCategoryBtn = new System.Windows.Forms.Button();
             this.updateShipperBtn = new System.Windows.Forms.Button();
             this.updateCategoryBtn = new System.Windows.Forms.Button();
+            this.shipperOrLbl = new System.Windows.Forms.Label();
+            this.categoryOrLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // shippersTxt
             // 
-            this.shippersTxt.Location = new System.Drawing.Point(31, 219);
+            this.shippersTxt.Location = new System.Drawing.Point(39, 296);
             this.shippersTxt.Name = "shippersTxt";
             this.shippersTxt.ReadOnly = true;
-            this.shippersTxt.Size = new System.Drawing.Size(263, 199);
+            this.shippersTxt.Size = new System.Drawing.Size(324, 199);
             this.shippersTxt.TabIndex = 0;
             this.shippersTxt.Text = "";
             // 
             // CategoriesTxt
             // 
-            this.CategoriesTxt.Location = new System.Drawing.Point(323, 219);
+            this.CategoriesTxt.Location = new System.Drawing.Point(431, 296);
             this.CategoriesTxt.Name = "CategoriesTxt";
             this.CategoriesTxt.ReadOnly = true;
             this.CategoriesTxt.Size = new System.Drawing.Size(445, 199);
@@ -71,14 +74,14 @@ namespace PracticaEFUI
             // 
             // companyNameTxt
             // 
-            this.companyNameTxt.Location = new System.Drawing.Point(194, 82);
+            this.companyNameTxt.Location = new System.Drawing.Point(263, 82);
             this.companyNameTxt.Name = "companyNameTxt";
             this.companyNameTxt.Size = new System.Drawing.Size(100, 22);
             this.companyNameTxt.TabIndex = 3;
             // 
             // phoneTxt
             // 
-            this.phoneTxt.Location = new System.Drawing.Point(194, 126);
+            this.phoneTxt.Location = new System.Drawing.Point(263, 126);
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Size = new System.Drawing.Size(100, 22);
             this.phoneTxt.TabIndex = 4;
@@ -86,7 +89,7 @@ namespace PracticaEFUI
             // companyNameLbl
             // 
             this.companyNameLbl.AutoSize = true;
-            this.companyNameLbl.Location = new System.Drawing.Point(82, 82);
+            this.companyNameLbl.Location = new System.Drawing.Point(139, 87);
             this.companyNameLbl.Name = "companyNameLbl";
             this.companyNameLbl.Size = new System.Drawing.Size(106, 17);
             this.companyNameLbl.TabIndex = 6;
@@ -95,7 +98,7 @@ namespace PracticaEFUI
             // phoneLbl
             // 
             this.phoneLbl.AutoSize = true;
-            this.phoneLbl.Location = new System.Drawing.Point(139, 129);
+            this.phoneLbl.Location = new System.Drawing.Point(196, 129);
             this.phoneLbl.Name = "phoneLbl";
             this.phoneLbl.Size = new System.Drawing.Size(49, 17);
             this.phoneLbl.TabIndex = 7;
@@ -103,9 +106,9 @@ namespace PracticaEFUI
             // 
             // addShipperBtn
             // 
-            this.addShipperBtn.Location = new System.Drawing.Point(194, 170);
+            this.addShipperBtn.Location = new System.Drawing.Point(263, 174);
             this.addShipperBtn.Name = "addShipperBtn";
-            this.addShipperBtn.Size = new System.Drawing.Size(100, 30);
+            this.addShipperBtn.Size = new System.Drawing.Size(100, 28);
             this.addShipperBtn.TabIndex = 8;
             this.addShipperBtn.Text = "Add shipper";
             this.addShipperBtn.UseVisualStyleBackColor = true;
@@ -113,23 +116,23 @@ namespace PracticaEFUI
             // 
             // categoryNameTxt
             // 
-            this.categoryNameTxt.Location = new System.Drawing.Point(668, 81);
+            this.categoryNameTxt.Location = new System.Drawing.Point(776, 83);
             this.categoryNameTxt.Name = "categoryNameTxt";
             this.categoryNameTxt.Size = new System.Drawing.Size(100, 22);
             this.categoryNameTxt.TabIndex = 10;
             // 
             // descriptionTxt
             // 
-            this.descriptionTxt.Location = new System.Drawing.Point(431, 126);
+            this.descriptionTxt.Location = new System.Drawing.Point(539, 131);
             this.descriptionTxt.Name = "descriptionTxt";
             this.descriptionTxt.Size = new System.Drawing.Size(337, 22);
             this.descriptionTxt.TabIndex = 11;
             // 
             // addCategoryBtn
             // 
-            this.addCategoryBtn.Location = new System.Drawing.Point(650, 170);
+            this.addCategoryBtn.Location = new System.Drawing.Point(758, 174);
             this.addCategoryBtn.Name = "addCategoryBtn";
-            this.addCategoryBtn.Size = new System.Drawing.Size(118, 30);
+            this.addCategoryBtn.Size = new System.Drawing.Size(118, 28);
             this.addCategoryBtn.TabIndex = 12;
             this.addCategoryBtn.Text = "Add category";
             this.addCategoryBtn.UseVisualStyleBackColor = true;
@@ -138,7 +141,7 @@ namespace PracticaEFUI
             // categoryNameLbl
             // 
             this.categoryNameLbl.AutoSize = true;
-            this.categoryNameLbl.Location = new System.Drawing.Point(549, 86);
+            this.categoryNameLbl.Location = new System.Drawing.Point(664, 85);
             this.categoryNameLbl.Name = "categoryNameLbl";
             this.categoryNameLbl.Size = new System.Drawing.Size(104, 17);
             this.categoryNameLbl.TabIndex = 14;
@@ -147,7 +150,7 @@ namespace PracticaEFUI
             // descriptionLbl
             // 
             this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(332, 131);
+            this.descriptionLbl.Location = new System.Drawing.Point(452, 129);
             this.descriptionLbl.Name = "descriptionLbl";
             this.descriptionLbl.Size = new System.Drawing.Size(79, 17);
             this.descriptionLbl.TabIndex = 15;
@@ -155,15 +158,15 @@ namespace PracticaEFUI
             // 
             // selectShipperIdTxt
             // 
-            this.selectShipperIdTxt.Location = new System.Drawing.Point(85, 436);
+            this.selectShipperIdTxt.Location = new System.Drawing.Point(63, 178);
             this.selectShipperIdTxt.Name = "selectShipperIdTxt";
-            this.selectShipperIdTxt.Size = new System.Drawing.Size(100, 22);
+            this.selectShipperIdTxt.Size = new System.Drawing.Size(43, 22);
             this.selectShipperIdTxt.TabIndex = 16;
             // 
             // selectShipperIdLbl
             // 
             this.selectShipperIdLbl.AutoSize = true;
-            this.selectShipperIdLbl.Location = new System.Drawing.Point(58, 439);
+            this.selectShipperIdLbl.Location = new System.Drawing.Point(36, 182);
             this.selectShipperIdLbl.Name = "selectShipperIdLbl";
             this.selectShipperIdLbl.Size = new System.Drawing.Size(21, 17);
             this.selectShipperIdLbl.TabIndex = 18;
@@ -172,7 +175,7 @@ namespace PracticaEFUI
             // selectCategoryIdLbl
             // 
             this.selectCategoryIdLbl.AutoSize = true;
-            this.selectCategoryIdLbl.Location = new System.Drawing.Point(526, 439);
+            this.selectCategoryIdLbl.Location = new System.Drawing.Point(428, 180);
             this.selectCategoryIdLbl.Name = "selectCategoryIdLbl";
             this.selectCategoryIdLbl.Size = new System.Drawing.Size(21, 17);
             this.selectCategoryIdLbl.TabIndex = 19;
@@ -182,7 +185,7 @@ namespace PracticaEFUI
             // 
             this.deleteShipperBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteShipperBtn.ForeColor = System.Drawing.Color.Red;
-            this.deleteShipperBtn.Location = new System.Drawing.Point(194, 434);
+            this.deleteShipperBtn.Location = new System.Drawing.Point(112, 206);
             this.deleteShipperBtn.Name = "deleteShipperBtn";
             this.deleteShipperBtn.Size = new System.Drawing.Size(100, 26);
             this.deleteShipperBtn.TabIndex = 20;
@@ -192,18 +195,18 @@ namespace PracticaEFUI
             // 
             // selectCategoryIdTxt
             // 
-            this.selectCategoryIdTxt.Location = new System.Drawing.Point(553, 436);
+            this.selectCategoryIdTxt.Location = new System.Drawing.Point(455, 177);
             this.selectCategoryIdTxt.Name = "selectCategoryIdTxt";
-            this.selectCategoryIdTxt.Size = new System.Drawing.Size(100, 22);
+            this.selectCategoryIdTxt.Size = new System.Drawing.Size(43, 22);
             this.selectCategoryIdTxt.TabIndex = 21;
             // 
             // deleteCategoryBtn
             // 
             this.deleteCategoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteCategoryBtn.ForeColor = System.Drawing.Color.Red;
-            this.deleteCategoryBtn.Location = new System.Drawing.Point(668, 435);
+            this.deleteCategoryBtn.Location = new System.Drawing.Point(504, 206);
             this.deleteCategoryBtn.Name = "deleteCategoryBtn";
-            this.deleteCategoryBtn.Size = new System.Drawing.Size(100, 24);
+            this.deleteCategoryBtn.Size = new System.Drawing.Size(100, 26);
             this.deleteCategoryBtn.TabIndex = 22;
             this.deleteCategoryBtn.Text = "DELETE";
             this.deleteCategoryBtn.UseVisualStyleBackColor = true;
@@ -213,7 +216,7 @@ namespace PracticaEFUI
             // 
             this.updateShipperBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateShipperBtn.ForeColor = System.Drawing.Color.Blue;
-            this.updateShipperBtn.Location = new System.Drawing.Point(194, 467);
+            this.updateShipperBtn.Location = new System.Drawing.Point(112, 174);
             this.updateShipperBtn.Name = "updateShipperBtn";
             this.updateShipperBtn.Size = new System.Drawing.Size(100, 28);
             this.updateShipperBtn.TabIndex = 23;
@@ -225,7 +228,7 @@ namespace PracticaEFUI
             // 
             this.updateCategoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateCategoryBtn.ForeColor = System.Drawing.Color.Blue;
-            this.updateCategoryBtn.Location = new System.Drawing.Point(668, 467);
+            this.updateCategoryBtn.Location = new System.Drawing.Point(504, 174);
             this.updateCategoryBtn.Name = "updateCategoryBtn";
             this.updateCategoryBtn.Size = new System.Drawing.Size(100, 28);
             this.updateCategoryBtn.TabIndex = 24;
@@ -233,11 +236,45 @@ namespace PracticaEFUI
             this.updateCategoryBtn.UseVisualStyleBackColor = true;
             this.updateCategoryBtn.Click += new System.EventHandler(this.UpdateCategoryBtn_Click);
             // 
+            // shipperOrLbl
+            // 
+            this.shipperOrLbl.AutoSize = true;
+            this.shipperOrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shipperOrLbl.Location = new System.Drawing.Point(225, 180);
+            this.shipperOrLbl.Name = "shipperOrLbl";
+            this.shipperOrLbl.Size = new System.Drawing.Size(31, 17);
+            this.shipperOrLbl.TabIndex = 25;
+            this.shipperOrLbl.Text = "OR";
+            // 
+            // categoryOrLbl
+            // 
+            this.categoryOrLbl.AutoSize = true;
+            this.categoryOrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryOrLbl.Location = new System.Drawing.Point(664, 182);
+            this.categoryOrLbl.Name = "categoryOrLbl";
+            this.categoryOrLbl.Size = new System.Drawing.Size(31, 17);
+            this.categoryOrLbl.TabIndex = 26;
+            this.categoryOrLbl.Text = "OR";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(86, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(708, 29);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Specify the record ID ONLY if you want to delete or update it";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 522);
+            this.ClientSize = new System.Drawing.Size(916, 522);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.categoryOrLbl);
+            this.Controls.Add(this.shipperOrLbl);
             this.Controls.Add(this.updateCategoryBtn);
             this.Controls.Add(this.updateShipperBtn);
             this.Controls.Add(this.deleteCategoryBtn);
@@ -259,8 +296,8 @@ namespace PracticaEFUI
             this.Controls.Add(this.CategoriesTxt);
             this.Controls.Add(this.shippersTxt);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(818, 569);
-            this.MinimumSize = new System.Drawing.Size(818, 569);
+            this.MaximumSize = new System.Drawing.Size(934, 569);
+            this.MinimumSize = new System.Drawing.Size(934, 569);
             this.Name = "MainForm";
             this.Text = "TP4-EF";
             this.ResumeLayout(false);
@@ -290,6 +327,9 @@ namespace PracticaEFUI
         private System.Windows.Forms.Button deleteCategoryBtn;
         private System.Windows.Forms.Button updateShipperBtn;
         private System.Windows.Forms.Button updateCategoryBtn;
+        private System.Windows.Forms.Label shipperOrLbl;
+        private System.Windows.Forms.Label categoryOrLbl;
+        private System.Windows.Forms.Label label1;
     }
 }
 

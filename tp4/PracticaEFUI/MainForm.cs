@@ -114,6 +114,10 @@ namespace PracticaEFUI
             {
                 MessageBox.Show(ex.Message, "what are you trying to do? 0_0");
             }
+            catch (DeleteConstraintException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void DeleteShipperBtn_Click(object sender, EventArgs e)
@@ -135,6 +139,10 @@ namespace PracticaEFUI
             catch (OverflowException ex)
             {
                 MessageBox.Show(ex.Message, "what are you trying to do? 0_0");
+            }
+            catch(DeleteConstraintException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
