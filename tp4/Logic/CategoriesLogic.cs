@@ -45,15 +45,14 @@ namespace Logic
 
         public void Delete(int id)
         {
-            if (id <= 8 && id>=1)
-            {
-                throw new DeleteConstraintException();
-            }
-            else
+            try
             {
                 var itemToRemove = context.Categories.Single(x => x.CategoryID == id);
                 context.Categories.Remove(itemToRemove);
                 context.SaveChanges();
+            }catch(Exception ex)
+            {
+                throw ex;
             }
         }
 

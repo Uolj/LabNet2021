@@ -42,15 +42,16 @@ namespace Logic
 
         public void Delete(int id)
         {
-            if (id <= 3 && id >= 1)
-            {
-                throw new DeleteConstraintException();
-            }
-            else
+
+            try
             {
                 var itemToRemove = context.Shippers.Single(x => x.ShipperID == id);
                 context.Shippers.Remove(itemToRemove);
                 context.SaveChanges();
+            }
+            catch ( Exception e)
+            {
+                throw e;
             }
         }
 
