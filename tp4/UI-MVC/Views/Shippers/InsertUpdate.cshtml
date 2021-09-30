@@ -1,12 +1,47 @@
-﻿@{
+﻿@model UI_MVC.Models.ShippersViewModel
+@{
     ViewBag.Title = "InsertUpdate";
 }
 
-<h1>Add a new Shippers or update it</h1>
+<h1>Add a new Shipper or update a record</h1>
+<br />
 
-<label for="companyNameTxt">Company Name: </label>
-<input type="text" id="companyNameTxt" />
-<label for="phoneTxt">Phone Number: </label>
-<input type="text" id="phoneTxt" />
+@using (Html.BeginForm("InsertUpdate", "Shippers", FormMethod.Post))
+{
+    <form>
+        <div class="form-group">
+            <label>Company Name: </label>
+            @Html.TextBoxFor(s => s.CompanyName, new { id = "companyNameTxt", onkeyup = "fieldsCheck()" })
+        </div>
+        <div class="form-group">
+            <label>Phone Number: </label>
+            @Html.TextBoxFor(s => s.PhoneNumber, new { id = "phoneNumberTxt", onkeyup = "fieldsCheck()" })
+        </div>
+        <div class="form-group">
+            <small>WARNING! specify an ID only if you want to update a record ;)</small>
+        </div>
+        <div class="form-group">
+            <label>Shipper ID: </label>
+            @Html.TextBoxFor(s => s.ShipperId)
+        </div>
+        <input type="submit" id="submitBtn" disabled />
+    </form>
 
-<button>Add</button>
+}
+@*Script para chequear que todos los campos requeridos esten completos, si esto no se cumple no se podra hacer el submit*@
+<script>
+    let phoneNumber = document.getElementById("phoneNumberTxt")
+    let companyName = document.getElementById("companyNameTxt");
+    let submitBtn = document.getElementById("submitBtn");
+
+    function fieldsCheck() {
+        if (companyName.value != "" && phoneNumber.value != "") {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+</script>
+
+<br />
+<button>@Html.ActionLink("Cancel", "index", "Shippers")</button>

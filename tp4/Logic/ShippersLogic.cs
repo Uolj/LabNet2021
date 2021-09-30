@@ -42,9 +42,16 @@ namespace Logic
 
         public void Delete(int id)
         {
-            var itemToRemove = context.Shippers.Single(x => x.ShipperID == id);
-            context.Shippers.Remove(itemToRemove);
-            context.SaveChanges();
+            if (id <= 3 && id >= 1)
+            {
+                throw new DeleteConstraintException();
+            }
+            else
+            {
+                var itemToRemove = context.Shippers.Single(x => x.ShipperID == id);
+                context.Shippers.Remove(itemToRemove);
+                context.SaveChanges();
+            }
         }
 
         public void Update<T>(T updatedItem)

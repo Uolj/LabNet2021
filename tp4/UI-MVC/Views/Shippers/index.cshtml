@@ -1,27 +1,31 @@
 ﻿@model List<UI_MVC.Models.ShippersViewModel>
 
+
 @{
-    ViewBag.Title = "SHIPPERS CHAVAL";
+    ViewBag.Title = "Shippers List";
 }
 
-<h1>SHIPPERS CHAVAL</h1>
+<h1>Shippers List</h1>
 
 <table class="table">
     <thead>
         <tr>
+            <th scope="col">ID</th>
             <th scope="col">Company Name</th>
             <th scope="col">Phone Number</th>
-            <th scope="col"></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var shippers in Model)
         {
-                <tr>
-                    <td>@shippers.CompanyName</td>
-                    <td>@shippers.PhoneNumber</td>
-                    <td><button>Borrar</button></td>
-                </tr>
-            }
+            <tr>
+                <th>@shippers.ShipperId</th>
+                <td>@shippers.CompanyName</td>
+                <td>@shippers.PhoneNumber</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { idToDelete = shippers.ShipperId })</td>
+            </tr>
+        }
     </tbody>
 </table>
+<button>@Html.ActionLink("Insert/Update", "InsertUpdate", "Shippers")</button>
