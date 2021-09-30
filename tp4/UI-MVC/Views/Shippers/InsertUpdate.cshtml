@@ -3,7 +3,7 @@
     ViewBag.Title = "InsertUpdate";
 }
 
-<h1>Add a new Shipper or update a record</h1>
+<h1 class="primary-text">Add a new Shipper or update a record</h1>
 <br />
 
 @using (Html.BeginForm("InsertUpdate", "Shippers", FormMethod.Post))
@@ -18,13 +18,16 @@
             @Html.TextBoxFor(s => s.PhoneNumber, new { id = "phoneNumberTxt", onkeyup = "fieldsCheck()" })
         </div>
         <div class="form-group">
-            <small>WARNING! specify an ID only if you want to update a record ;)</small>
+            <small style="color:red;">WARNING! specify an ID only if you want to update a record ;)</small>
         </div>
         <div class="form-group">
             <label>Shipper ID: </label>
             @Html.TextBoxFor(s => s.ShipperId)
         </div>
-        <input type="submit" id="submitBtn" disabled />
+        <button type="submit" id="submitBtn" class="btn btn-success" disabled>Submit</button>
+        <a href="@Url.Action("Index", "Shippers")">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
     </form>
 
 }
@@ -44,4 +47,3 @@
 </script>
 
 <br />
-<button>@Html.ActionLink("Cancel", "index", "Shippers")</button>

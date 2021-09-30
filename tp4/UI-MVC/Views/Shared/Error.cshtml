@@ -11,6 +11,8 @@
         <h2>@ViewBag.Error</h2>
     </hgroup>
     <br />
-    <button>@Html.ActionLink("Back", "InsertUpdate", "Shippers")</button>
+    <a href=@Url.Action("Index", "Shippers" )>
+        <button type="button" class="btn btn-danger">Back</button>
+    </a>
 </body>
 </html>
