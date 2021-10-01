@@ -52,18 +52,8 @@ namespace Logic
 
         public void Delete(int id)
         {
-<<<<<<< HEAD
 
-            if (id <= 8 && id >= 1)
-
-            if (id <= 8 && id>=1)
-            {
-                throw new DeleteConstraintException();
-            }
-            else
-=======
             try
->>>>>>> 3dfecb09a36cf9f97289c08d7ee4368945778e39
             {
                 var itemToRemove = context.Categories.Single(x => x.CategoryID == id);
                 context.Categories.Remove(itemToRemove);

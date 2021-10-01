@@ -95,7 +95,7 @@ namespace UI_MVC.Controllers
                 logic.Delete(idToDelete);
                 return RedirectToAction("Index");
             }
-            catch (DeleteConstraintException ex)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", "Shippers", new
                 {
