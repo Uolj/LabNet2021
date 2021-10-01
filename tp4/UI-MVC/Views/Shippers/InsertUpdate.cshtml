@@ -12,10 +12,12 @@
         <div class="form-group">
             <label>Company Name: </label>
             @Html.TextBoxFor(s => s.CompanyName, new { id = "companyNameTxt", onkeyup = "fieldsCheck()" })
+            @Html.ValidationMessageFor(c=>c.CompanyName)
         </div>
         <div class="form-group">
             <label>Phone Number: </label>
             @Html.TextBoxFor(s => s.PhoneNumber, new { id = "phoneNumberTxt", onkeyup = "fieldsCheck()" })
+            @Html.ValidationMessageFor(c => c.PhoneNumber)
         </div>
         <div class="form-group">
             <small style="color:red;">WARNING! specify an ID only if you want to update a record ;)</small>
