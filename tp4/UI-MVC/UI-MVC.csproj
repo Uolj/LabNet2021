@@ -127,7 +127,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\CategoriesController.cs" />
+=======
+>>>>>>> 3dfecb09a36cf9f97289c08d7ee4368945778e39
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShippersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -175,7 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
     <Folder Include="Views\Categories\" />
+=======
+>>>>>>> 3dfecb09a36cf9f97289c08d7ee4368945778e39
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

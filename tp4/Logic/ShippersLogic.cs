@@ -9,7 +9,6 @@ namespace Logic
 {
     public class ShippersLogic : ClassesLogic, IDbActions
     {
-
         public override String ShowInfo()
         {
             StringBuilder sb = new StringBuilder();
@@ -21,11 +20,16 @@ namespace Logic
         }
         public void Add<T>(T insertedObject)
         {
-
-            object shipper = insertedObject;
-            context.Shippers.Add((Shippers)shipper);
-            context.SaveChanges();
-
+            try
+            {
+                object shipper = insertedObject;
+                context.Shippers.Add((Shippers)shipper);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void DataCheck<T>(T checkedObject)
@@ -42,26 +46,45 @@ namespace Logic
 
         public void Delete(int id)
         {
-            if (id <= 3 && id >= 1)
-            {
-                throw new DeleteConstraintException();
-            }
-            else
+            try
             {
                 var itemToRemove = context.Shippers.Single(x => x.ShipperID == id);
                 context.Shippers.Remove(itemToRemove);
                 context.SaveChanges();
             }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void Update<T>(T updatedItem)
         {
-            object updatedShipper = updatedItem;
-            var itemToUpdate = context.Shippers.Single(x => x.ShipperID == ((Shippers)updatedShipper).ShipperID);
-            itemToUpdate.ShipperID = ((Shippers)updatedShipper).ShipperID;
-            itemToUpdate.CompanyName = ((Shippers)updatedShipper).CompanyName;
-            itemToUpdate.Phone = ((Shippers)updatedShipper).Phone;
-            context.SaveChanges();
+            try
+            {
+                object updatedShipper = updatedItem;
+                var itemToUpdate = context.Shippers.Single(x => x.ShipperID == ((Shippers)updatedShipper).ShipperID);
+                itemToUpdate.ShipperID = ((Shippers)updatedShipper).ShipperID;
+                itemToUpdate.CompanyName = ((Shippers)updatedShipper).CompanyName;
+                itemToUpdate.Phone = ((Shippers)updatedShipper).Phone;
+                context.SaveChanges();
+            }
+            catch (OverflowException ex)
+            {
+                throw ex;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

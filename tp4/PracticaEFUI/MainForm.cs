@@ -34,6 +34,7 @@ namespace PracticaEFUI
 
         private void AddShipperBtn_click(object sender, EventArgs e)
         {
+            shippersLogic = new ShippersLogic();
             try
             {
                 string companyName = companyNameTxt.Text;
@@ -65,6 +66,7 @@ namespace PracticaEFUI
 
         private void AddCategoryBtn_Click(object sender, EventArgs e)
         {
+            categoriesLogic = new CategoriesLogic();
             try
             {
                 string categoryName = categoryNameTxt.Text;
@@ -96,6 +98,7 @@ namespace PracticaEFUI
 
         private void DeleteCategoryBtn_Click(object sender, EventArgs e)
         {
+            categoriesLogic = new CategoriesLogic();
             try
             {
                 int id = int.Parse(selectCategoryIdTxt.Text);
@@ -114,14 +117,15 @@ namespace PracticaEFUI
             {
                 MessageBox.Show(ex.Message, "what are you trying to do? 0_0");
             }
-            catch (DeleteConstraintException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void DeleteShipperBtn_Click(object sender, EventArgs e)
         {
+            shippersLogic = new ShippersLogic();
             try
             {
                 int id = int.Parse(selectShipperIdTxt.Text);
@@ -140,7 +144,7 @@ namespace PracticaEFUI
             {
                 MessageBox.Show(ex.Message, "what are you trying to do? 0_0");
             }
-            catch(DeleteConstraintException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -148,6 +152,7 @@ namespace PracticaEFUI
 
         private void UpdateShipperBtn_Click(object sender, EventArgs e)
         {
+            shippersLogic = new ShippersLogic();
             try
             {
                 int id = int.Parse(selectShipperIdTxt.Text);
@@ -184,8 +189,10 @@ namespace PracticaEFUI
 
         private void UpdateCategoryBtn_Click(object sender, EventArgs e)
         {
+            categoriesLogic = new CategoriesLogic();
             try
             {
+                categoriesLogic = new CategoriesLogic();
                 int id = int.Parse(selectCategoryIdTxt.Text);
                 string categoryName = categoryNameTxt.Text;
                 string description = descriptionTxt.Text;

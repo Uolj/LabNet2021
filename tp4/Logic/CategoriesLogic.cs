@@ -23,11 +23,18 @@ namespace Logic
         }
         public void Add<T>(T insertedObject)
         {
+            try
+            {
 
-            object category = insertedObject;
-            context.Categories.Add((Categories)category);
-            context.SaveChanges();
+                object category = insertedObject;
+                context.Categories.Add((Categories)category);
+                context.SaveChanges();
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void DataCheck<T>(T checkedObject)
@@ -45,6 +52,7 @@ namespace Logic
 
         public void Delete(int id)
         {
+<<<<<<< HEAD
 
             if (id <= 8 && id >= 1)
 
@@ -53,21 +61,48 @@ namespace Logic
                 throw new DeleteConstraintException();
             }
             else
+=======
+            try
+>>>>>>> 3dfecb09a36cf9f97289c08d7ee4368945778e39
             {
                 var itemToRemove = context.Categories.Single(x => x.CategoryID == id);
                 context.Categories.Remove(itemToRemove);
                 context.SaveChanges();
+
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
         public void Update<T>(T updatedItem)
         {
-            object updatedCategory = updatedItem;
-            var itemToUpdate = context.Categories.Single(x => x.CategoryID == ((Categories)updatedCategory).CategoryID);
-            itemToUpdate.CategoryID = ((Categories)updatedCategory).CategoryID;
-            itemToUpdate.CategoryName = ((Categories)updatedCategory).CategoryName;
-            itemToUpdate.Description = ((Categories)updatedCategory).Description;
-            context.SaveChanges();
+            try
+            {
+                object updatedCategory = updatedItem;
+                var itemToUpdate = context.Categories.Single(x => x.CategoryID == ((Categories)updatedCategory).CategoryID);
+                itemToUpdate.CategoryID = ((Categories)updatedCategory).CategoryID;
+                itemToUpdate.CategoryName = ((Categories)updatedCategory).CategoryName;
+                itemToUpdate.Description = ((Categories)updatedCategory).Description;
+                context.SaveChanges();
+            }
+            catch (OverflowException ex)
+            {
+                throw ex;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
