@@ -23,11 +23,18 @@ namespace Logic
         }
         public void Add<T>(T insertedObject)
         {
+            try
+            {
 
-            object category = insertedObject;
-            context.Categories.Add((Categories)category);
-            context.SaveChanges();
+                object category = insertedObject;
+                context.Categories.Add((Categories)category);
+                context.SaveChanges();
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void DataCheck<T>(T checkedObject)
@@ -50,7 +57,13 @@ namespace Logic
                 var itemToRemove = context.Categories.Single(x => x.CategoryID == id);
                 context.Categories.Remove(itemToRemove);
                 context.SaveChanges();
-            }catch(Exception ex)
+
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -58,12 +71,27 @@ namespace Logic
 
         public void Update<T>(T updatedItem)
         {
-            object updatedCategory = updatedItem;
-            var itemToUpdate = context.Categories.Single(x => x.CategoryID == ((Categories)updatedCategory).CategoryID);
-            itemToUpdate.CategoryID = ((Categories)updatedCategory).CategoryID;
-            itemToUpdate.CategoryName = ((Categories)updatedCategory).CategoryName;
-            itemToUpdate.Description = ((Categories)updatedCategory).Description;
-            context.SaveChanges();
+            try
+            {
+                object updatedCategory = updatedItem;
+                var itemToUpdate = context.Categories.Single(x => x.CategoryID == ((Categories)updatedCategory).CategoryID);
+                itemToUpdate.CategoryID = ((Categories)updatedCategory).CategoryID;
+                itemToUpdate.CategoryName = ((Categories)updatedCategory).CategoryName;
+                itemToUpdate.Description = ((Categories)updatedCategory).Description;
+                context.SaveChanges();
+            }
+            catch (OverflowException ex)
+            {
+                throw ex;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
