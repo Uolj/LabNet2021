@@ -1,3 +1,0 @@
-@Imports tp8ApiRest.Areas.HelpPage.ModelDescriptions
-@ModelType SimpleTypeModelDescription
-@Model.Documentation
