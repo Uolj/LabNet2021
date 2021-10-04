@@ -6,42 +6,86 @@ using System.Net.Http;
 using System.Web.Http;
 using Data;
 using Entities;
+using Logic;
+using tp8WebApiRest.Models;
 
 namespace tp8WebApiRest.Controllers
 {
     public class ShippersApiController : ApiController
     {
-        private NorthwindContext context = new NorthwindContext();
+        public ShippersLogic logic = new ShippersLogic();
 
         [HttpGet]
-        public IEnumerable<Shippers> Get()
+        public IHttpActionResult Get()
         {
-
-            using (NorthwindContext context = new NorthwindContext())
+            try
             {
-                return context.Shippers.ToList();
+                List<ShippersResponse> shippersResponse;
+                var shippers = logic.GetAll<Shippers>();
+
+                shippersResponse = shippers.Select(s => new ShippersResponse
+                {
+                    ShipperID = s.ShipperID,
+                    Phone = s.Phone,
+                    CompanyName = s.CompanyName
+
+                }).ToList();
+
+                return Ok(shippersResponse);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
             }
         }
 
         [HttpGet]
-        public Shippers Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            using (NorthwindContext context = new NorthwindContext())
+            try
             {
-                return context.Shippers.FirstOrDefault(s => s.ShipperID == id);
+                var shippers = logic.GetAll<Shippers>();
+                Shippers shipperToMap = shippers.Find(s => s.ShipperID == id);
+
+                if (shipperToMap == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    ShippersResponse shippersResponse = new ShippersResponse
+                    {
+                        ShipperID = shipperToMap.ShipperID,
+                        Phone = shipperToMap.Phone,
+                        CompanyName = shipperToMap.CompanyName
+                    };
+
+                    return Ok(shippersResponse);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
             }
         }
 
         [HttpPost]
-        public IHttpActionResult Add([FromBody] Shippers shipper)
+        public IHttpActionResult Add([FromBody] ShippersRequest shippersRequest)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    context.Shippers.Add(shipper);
-                    context.SaveChanges();
-                    return Ok(shipper);
+                    Shippers shipperToInsert = new Shippers
+                    {
+                        ShipperID = shippersRequest.ShipperID,
+                        Phone = shippersRequest.Phone,
+                        CompanyName = shippersRequest.CompanyName
+                    };
+
+                    logic.Add<Shippers>(shipperToInsert);
+                    return Ok(shipperToInsert);
                 }
                 else
                 {
@@ -56,18 +100,24 @@ namespace tp8WebApiRest.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Update(int id, [FromBody] Shippers shipper)
+        public IHttpActionResult Update(int id, [FromBody] ShippersRequest shippersRequest)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var shipperExists = context.Shippers.Count(s => s.ShipperID == id) > 0;
+                    bool shipperExists = logic.GetAll<Shippers>().Exists(s => s.ShipperID == id);
 
                     if (shipperExists)
                     {
-                        context.Entry(shipper).State = System.Data.Entity.EntityState.Modified;
-                        context.SaveChanges();
+                        Shippers updatedShipper = new Shippers
+                        {
+                            ShipperID = shippersRequest.ShipperID,
+                            Phone = shippersRequest.Phone,
+                            CompanyName = shippersRequest.CompanyName
+                        };
+
+                        logic.Update<Shippers>(updatedShipper);
 
                         return Ok();
                     }
@@ -92,13 +142,12 @@ namespace tp8WebApiRest.Controllers
         {
             try
             {
-                var shipper = context.Shippers.Find(id);
-                if (shipper != null)
+                var shipperToDelete = logic.GetAll<Shippers>().Find(s=>s.ShipperID==id);
+                if (shipperToDelete!=null)
                 {
-                    context.Shippers.Remove(shipper);
-                    context.SaveChanges();
+                    logic.Delete(id);
 
-                    return Ok(shipper);
+                    return Ok(shipperToDelete);
                 }
                 else
                 {

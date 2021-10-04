@@ -168,6 +168,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShippersRequest.cs" />
+    <Compile Include="Models\ShippersResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Shippers\" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +264,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{F13581B5-625F-4016-AD0E-0ABC59B48683}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{fb646a3b-3f44-473d-b755-39fc60a968cf}</Project>
+      <Name>Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
