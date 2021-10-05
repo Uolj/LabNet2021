@@ -5,6 +5,9 @@ using System.Web;
 
 namespace UI_MVC.Controllers
 {
+    using APILogic;
+    using Entities;
+    using Logic;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
@@ -20,31 +23,23 @@ namespace UI_MVC.Controllers
     {
         public class DigimonController : Controller
         {
+
             // GET: Api
-            string baseUrl = "https://digimon-api.herokuapp.com";
+            DigimonLogic logic = new DigimonLogic();
+
             public async Task<ActionResult> Index()
             {
-                var digimons = new List<DigimonViewModel>();
-
-                using (var client = new HttpClient())
+                List<Digimon> digimons = await logic.Get();
+                List<DigimonViewModel> digimonsViewModel = digimons.Select(d => new DigimonViewModel()
                 {
-                    client.BaseAddress = new Uri(baseUrl);
-                    client.DefaultRequestHeaders.Clear();
+                    Name = d.Name,
+                    Level = d.Level,
+                    Img = d.Img
+                }).ToList();
 
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    HttpResponseMessage responseMessage = await client.GetAsync("/api/digimon");
-
-                    if (responseMessage.IsSuccessStatusCode)
-                    {
-                        var digimonResponse = responseMessage.Content.ReadAsStringAsync().Result;
-
-                        digimons = JsonConvert.DeserializeObject<List<DigimonViewModel>>(digimonResponse);
-                    }
-                }
-
-                return View(digimons);
+                return View(digimonsViewModel);
             }
+
         }
     }
 }

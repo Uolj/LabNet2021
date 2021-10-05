@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UI_MVC.Models.DigimonViewModel>
+﻿@model List<UI_MVC.Models.DigimonViewModel>
 
 @{
     ViewBag.Title = "index";
@@ -12,13 +12,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Level)
+                Level
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Img)
+                Photo
             </th>
         </tr>
     </thead>
