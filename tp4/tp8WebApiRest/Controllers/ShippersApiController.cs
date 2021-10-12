@@ -8,9 +8,11 @@ using Data;
 using Entities;
 using Logic;
 using tp8WebApiRest.Models;
+using System.Web.Http.Cors;
 
 namespace tp8WebApiRest.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ShippersApiController : ApiController
     {
         public ShippersLogic logic = new ShippersLogic();
@@ -142,8 +144,8 @@ namespace tp8WebApiRest.Controllers
         {
             try
             {
-                var shipperToDelete = logic.GetAll<Shippers>().Find(s=>s.ShipperID==id);
-                if (shipperToDelete!=null)
+                var shipperToDelete = logic.GetAll<Shippers>().Find(s => s.ShipperID == id);
+                if (shipperToDelete != null)
                 {
                     logic.Delete(id);
 
