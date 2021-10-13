@@ -32,7 +32,7 @@
             formControls.companyName.touched && formControls.companyName.errors
           "
         >
-          <span *ngIf="formControls.companyName.errors.maxLength">
+          <span *ngIf="formControls.companyName.errors.maxlength">
             Maximum Character Limit Exceeded
           </span>
           <span *ngIf="formControls.companyName.errors.required">
@@ -61,7 +61,7 @@
           <span *ngIf="formControls.phoneNumber.errors.required">
             Required field
           </span>
-          <span *ngIf="formControls.phoneNumber.errors.maxLength">
+          <span *ngIf="formControls.phoneNumber.errors.maxlength">
             Character limit exceeded
           </span>
         </mat-error>

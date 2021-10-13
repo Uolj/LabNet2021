@@ -40,6 +40,6 @@ export class ShippersService {
   }
 
   errorHandler(error: HttpErrorResponse) {
-    return observableThrowError(error || 'Server Error');
+    return observableThrowError(error.message || 'Server Error');
   }
 }

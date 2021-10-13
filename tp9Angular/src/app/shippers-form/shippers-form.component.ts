@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppModule } from '../app.module';
 import { Shipper } from '../models/Shipper.model';
 import { ShippersService } from '../services/shippers.service';
 import { ShipperInfoService } from '../services/shipper-info.service';
