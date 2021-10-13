@@ -1,0 +1,88 @@
+<style>
+  :host {
+    display: block;
+  }
+  body {
+    border-radius: 30px;
+    padding: 30px;
+    justify-content: center;
+    margin: 10px 30%;
+  }
+  button {
+    margin-left: 20px;
+  }
+</style>
+
+<body class="mat-app-background">
+  <form [formGroup]="shippersGroup">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Company Name</mat-label>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              formControls.companyName.touched &&
+              formControls.companyName.errors
+          }"
+          formControlName="companyName"
+          matInput
+        />
+        <mat-error
+          *ngIf="
+            formControls.companyName.touched && formControls.companyName.errors
+          "
+        >
+          <span *ngIf="formControls.companyName.errors.maxLength">
+            Maximum Character Limit Exceeded
+          </span>
+          <span *ngIf="formControls.companyName.errors.required">
+            Required field
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              formControls.companyName.touched &&
+              formControls.companyName.errors
+          }"
+          formControlName="phoneNumber"
+          matInput
+        />
+        <mat-error
+          *ngIf="
+            formControls.phoneNumber.touched && formControls.phoneNumber.errors
+          "
+        >
+          <span *ngIf="formControls.phoneNumber.errors.required">
+            Required field
+          </span>
+          <span *ngIf="formControls.phoneNumber.errors.maxLength">
+            Character limit exceeded
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </p>
+  </form>
+  <button
+    *ngIf="this.shipperToUpdate.ShipperID == null"
+    class="btn btn-success"
+    type="submit"
+    (click)="addShipper()"
+  >
+    Add
+  </button>
+  <button
+    *ngIf="this.shipperToUpdate.ShipperID != null"
+    class="btn btn-warning"
+    type="submit"
+    (click)="updateShipper()"
+  >
+    Modify
+  </button>
+  <button type="button" class="btn btn-danger" (click)="btnBack()">Back</button>
+</body>
